@@ -1,11 +1,13 @@
-# Version onepage — la racine du site
+# Comment le CV est construit
 
-Le même CV, mais qui se parcourt d'un seul défilement au lieu de six écrans qui
-se remplacent. **Même contenu** que la réplique servie sous `/carrd/` : mêmes textes, mêmes dates,
-mêmes liens, mêmes photos. Seules la mise en page et la mécanique changent.
+Le CV se parcourt d'un seul défilement, là où le Carrd d'origine le découpait en
+six écrans qui se remplaçaient. **Le contenu est le même** que celui du Carrd :
+mêmes textes, mêmes dates, mêmes liens, mêmes photos. Seules la mise en page et
+la mécanique changent.
 
-La parité a été vérifiée en comparant les textes des deux fichiers. Deux écarts,
-tous deux assumés :
+La parité a été vérifiée en comparant les textes des deux fichiers, du temps où
+la réplique du Carrd vivait encore sous `/carrd/`. Deux écarts, tous deux
+assumés :
 
 - **Apostrophes uniformisées** en apostrophe courbe (`’`). Le Carrd d'origine
   mélange les deux formes, parfois dans la même clause — « Responsable d’accueil
@@ -41,18 +43,18 @@ npx serve -l 4404 .
 
 Le site est statique : n'importe quel serveur de fichiers fait l'affaire.
 
-## Les deux versions
+## Ce qui a changé par rapport au Carrd
 
-| | `/carrd/` | racine du site |
+| | réplique du Carrd | ce site |
 |---|---|---|
-| Origine | réplique au pixel du Carrd | mise en page nouvelle |
+| Origine | réplique au pixel | mise en page nouvelle |
 | Navigation | six sections qui se remplacent, par le hash | un seul défilement continu |
 | CSS | 1 225 règles Carrd, texte d'origine | écrit pour l'occasion, ~700 lignes |
 | Poids CSS | 170 Ko | 22 Ko |
 | Identité | — | polices, couleurs et casse reprises telles quelles |
 
-Rien n'est encore décidé quant à celle qui ira sur `cv.magalicontrino.com`.
-Les deux dossiers sont autonomes et prêts à publier.
+Les deux ont vécu en ligne côte à côte pour être comparées en vrai. La onepage
+l'a emporté le 21 juillet 2026 ; la réplique a été retirée du dépôt.
 
 ## L'identité est conservée
 
@@ -163,19 +165,17 @@ d'aperçu de cette session ne peignait pas la page, ce qui gèle les transitions
 CSS et suspend `requestAnimationFrame` ; les captures montrent donc les états
 finaux, pas le mouvement. Les durées, les courbes et l'enchaînement sont justes
 sur le papier et l'état des classes le confirme, mais **le rendu réel des
-transitions reste à regarder dans un vrai navigateur.** C'est la première chose
-à faire avant de publier.
+transitions reste à regarder dans un vrai navigateur.** Le site est en ligne :
+il suffit d'ouvrir `cv.magalicontrino.com` et de faire défiler.
 
 ## Formulaire
 
-Identique à la réplique : le bouton ouvre le logiciel de courrier avec le message
+Comme sur la réplique : le bouton ouvre le logiciel de courrier avec le message
 déjà rempli, à destination de `magalicontrino@hotmail.fr` (constante
 `CONTACT_EMAIL` en fin d'`app.js`). Rien n'est envoyé à un serveur, donc rien ne
 prétend avoir été reçu.
 
 ## Mise en ligne
 
-Le dossier est autonome. Pour le publier à la place de la réplique, reprendre la
-marche à suivre du [README du dépôt](README.md) : il suffit d'échanger le
-contenu de la racine et celui de `carrd/`, en laissant `CNAME` et `.github/` à
-la racine.
+Voir le [README du dépôt](README.md). Le dossier est autonome et téléversé tel
+quel : chaque poussée sur `main` publie la racine.

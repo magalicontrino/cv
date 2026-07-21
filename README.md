@@ -1,22 +1,20 @@
 # cv.magalicontrino.com
 
-Le CV de Magali Contrino, en deux versions à contenu identique.
+Le CV de Magali Contrino, en une page qui se parcourt d'un seul défilement.
+[Détails de la construction](onepage.md).
 
-| URL | Dossier | Ce que c'est |
-|---|---|---|
-| `cv.magalicontrino.com` | racine | **Version onepage** — tout le CV en un seul défilement — [détails](onepage.md) |
-| `cv.magalicontrino.com/carrd/` | `carrd/` | **Réplique du Carrd d'origine** — six écrans qui se remplacent — [détails](carrd/README.md) |
+Le site est autonome : ni Carrd, ni Google Fonts, ni Cloudflare, ni CDN. Polices
+et images en local, aucune requête vers l'extérieur.
 
-Les deux sont autonomes : ni Carrd, ni Google Fonts, ni Cloudflare, ni CDN.
-Polices et images en local, aucune requête vers l'extérieur.
-
-Garder les deux en ligne permet de les comparer en vrai avant de trancher. Pour
-intervertir, échanger le contenu de la racine et celui de `carrd/`, en laissant
-`CNAME` et `.github/` à la racine.
+Il a remplacé `magalicontrino.carrd.co`. Une réplique au pixel de ce Carrd a
+vécu un temps sous `/carrd/`, le temps de comparer les deux en vrai ; elle a été
+retirée le 21 juillet 2026, la onepage l'ayant emporté. Elle reste dans
+l'historique git (`git show 90a4068:carrd/index.html`) et dans
+`~/Downloads/site mag/replica/cv`.
 
 ## Contenu
 
-Identique dans les deux versions, et à jour :
+À jour par rapport au Carrd d'origine :
 
 - **Poste en cours** — Samusocial, Point focal opérationnel (PFO), 2026 - en
   cours, Centre d'urgence médicalisé.
@@ -25,8 +23,8 @@ Identique dans les deux versions, et à jour :
 - **Bouton « cv-pdf »** retiré : il pointait vers un document Canva.
 
 Le formulaire de contact n'envoie rien à un serveur — il ouvre le logiciel de
-courrier avec le message déjà rempli. L'écran « Merci » du Carrd n'est donc plus
-atteint automatiquement : il annoncerait à tort que le message est parti.
+courrier avec le message déjà rempli. L'écran « Merci » du Carrd n'a donc pas
+été repris : il annoncerait à tort que le message est parti.
 
 ## Publication
 
@@ -34,10 +32,10 @@ GitHub Pages, via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
 Le site est statique : rien à construire, le dépôt est téléversé tel quel à
 chaque poussée sur `main`.
 
-À régler une fois côté GitHub : **Settings → Pages → Source = GitHub Actions**.
-Le domaine vient du fichier [`CNAME`](CNAME) à la racine.
+Réglé côté GitHub : **Settings → Pages → Source = GitHub Actions**. Le domaine
+vient du fichier [`CNAME`](CNAME) à la racine.
 
-Côté DNS (GoDaddy), un seul enregistrement à ajouter :
+Côté DNS (GoDaddy), l'enregistrement est en place :
 
 ```
 Type    CNAME
@@ -47,3 +45,6 @@ Valeur  magalicontrino.github.io
 
 Ne pas toucher aux quatre enregistrements `A` de `@`, qui servent
 magalicontrino.com, ni à la ligne `cavadaliga`.
+
+Reste à cocher **Enforce HTTPS** dans Settings → Pages : `http://` sert encore
+la page directement au lieu de rediriger.
