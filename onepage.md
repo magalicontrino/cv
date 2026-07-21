@@ -86,6 +86,9 @@ Tout est écrit à la main, sans bibliothèque, sans CDN. `app.js` fait 12 Ko.
    fait par famille (design, photo, social). Se désempile sous 820 px.
 7. **Jauge, points de section, défilement animé.** La courbe du défilement est
    celle du Carrd d'origine, cubique symétrique, portée à 1,1 s.
+8. **Retour en haut.** Une flèche fixe en bas à droite, disponible partout, qui
+   emprunte le même défilement animé. C'est la flèche des boutons « retour » du
+   Carrd, pivotée vers le haut.
 
 Plus les états de survol : trait qui se déroule sous les liens, fond qui monte
 dans les boutons, étiquettes flottantes dans le formulaire.
@@ -109,6 +112,19 @@ quand tout va mal.
   — onglet non peint, moteur qui l'a suspendue — le contenu apparaît quand même.
 - `prefers-reduced-motion: reduce` neutralise tout : ni rideau, ni parallaxe, ni
   apparitions, et les états de départ sont annulés.
+- La flèche de retour en haut apparaît normalement au-delà du premier écran ;
+  **sans script elle est affichée en permanence**, puisque personne ne peut plus
+  suivre le défilement pour décider du bon moment. Le saut d'ancre natif du
+  navigateur fait alors le travail.
+
+### Pourquoi la flèche n'est pas pilotée par la boucle d'animation
+
+Sa visibilité est réglée directement dans le gestionnaire de défilement, à
+l'écart de `requestAnimationFrame` qui porte tout le reste. Deux raisons : c'est
+une simple comparaison, sans lecture de mise en page, donc son coût est nul ; et
+Safari iOS suspend `requestAnimationFrame` pendant le défilement inertiel — la
+flèche répondrait avec un temps de retard visible au moment précis où l'on en a
+le plus besoin.
 
 ## Trois pièges rencontrés, et ce qu'ils ont appris
 

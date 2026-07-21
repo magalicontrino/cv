@@ -193,6 +193,15 @@
   var dotLinks = $$('.dots a');
   var sections = dotLinks.map(function (a) { return $(a.getAttribute('href')); });
   var darkSections = $$('.chapter--dark');
+  var toTop = $('.totop');
+
+  // Y a-t-il une section sombre à cette hauteur de l'écran ?
+  function darkAt(y) {
+    return darkSections.some(function (s) {
+      var r = s.getBoundingClientRect();
+      return r.top <= y && r.bottom >= y;
+    });
+  }
 
   function frame() {
     var vh = innerHeight;
@@ -228,23 +237,33 @@
     });
     dotLinks.forEach(function (a, i) { a.classList.toggle('is-active', i === current); });
 
-    // La navigation s'inverse au-dessus des sections sombres. On teste les
-    // rectangles plutôt que elementFromPoint, qui tombe sur la barre de
-    // défilement au bord droit et force un recalcul de style à chaque image.
-    if (dots) {
-      var mid = vh / 2;
-      var dark = darkSections.some(function (s) {
-        var r = s.getBoundingClientRect();
-        return r.top <= mid && r.bottom >= mid;
-      });
-      dots.classList.toggle('on-dark', dark);
-    }
+    // Les commandes du bord droit s'inversent au-dessus des sections sombres.
+    // On teste les rectangles plutôt que elementFromPoint, qui tombe sur la
+    // barre de défilement au bord droit et force un recalcul de style à chaque
+    // image. Chacune est jaugée à SA hauteur : les points sont au milieu, la
+    // flèche en bas, elles ne survolent donc pas forcément la même section.
+    if (dots) dots.classList.toggle('on-dark', darkAt(vh / 2));
+
+    // La visibilité de la flèche est traitée hors de cette boucle (voir
+    // showToTop) ; ici on ne règle que son contraste, qui demande de mesurer
+    // les sections.
+    if (toTop) toTop.classList.toggle('on-dark', darkAt(vh - 48));
 
     ticking = false;
   }
 
+  // La flèche apparaît une fois le premier écran passé — au-dessus, le haut de
+  // page est déjà là. Réglée directement dans le gestionnaire de défilement, et
+  // non dans la boucle d'animation : c'est une simple comparaison, sans lecture
+  // de mise en page, et Safari iOS suspend requestAnimationFrame pendant le
+  // défilement inertiel. La flèche répond donc même à ce moment-là.
+  function showToTop() {
+    if (toTop) toTop.classList.toggle('is-visible', scrollY > innerHeight * 0.6);
+  }
+
   var ticking = false;
   function onScroll() {
+    showToTop();
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(frame);

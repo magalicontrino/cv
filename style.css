@@ -251,6 +251,67 @@ body.is-open .dots { opacity: 1; }
 
 @media (max-width: 700px) { .dots { display: none; } }
 
+/* ------------------------------------------------ 5 bis. Retour en haut - */
+
+/* Même colonne que les points, mais ancrée en bas : les deux commandes
+   forment un bord droit cohérent sans jamais se croiser. Reste disponible en
+   mobile, où les points disparaissent. */
+.totop {
+  position: fixed;
+  right: clamp(.75rem, 2vw, 1.75rem);
+  bottom: clamp(1rem, 3vh, 2.25rem);
+  z-index: 60;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  /* Blanc sur le papier gris, comme les cartes : un aplat de la même couleur
+     que le fond, avec un filet à 16 %, la rendait introuvable. */
+  border: 1px solid rgba(71, 71, 71, .22);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink-strong);
+  box-shadow: 0 2px 14px rgba(28, 26, 26, .09);
+
+  /* Escamotée tant qu'on est sur le premier écran : elle n'y sert à rien. */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(.75rem);
+  transition:
+    opacity .5s var(--ease), transform .5s var(--ease),
+    visibility 0s linear .5s,
+    background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
+}
+.totop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity .5s var(--ease), transform .5s var(--ease),
+    visibility 0s linear 0s,
+    background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
+}
+
+/* La flèche du Carrd pointe à gauche : on la redresse vers le haut. */
+.totop svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+  transform: rotate(90deg);
+  transition: transform .45s var(--ease);
+}
+.totop:hover, .totop:focus-visible { background: var(--ink-strong); color: var(--paper); border-color: var(--ink-strong); }
+.totop:hover svg, .totop:focus-visible svg { transform: rotate(90deg) translateX(.18rem); }
+
+/* Sur fond noir, elle s'inverse comme les points. */
+.totop.on-dark {
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(255, 255, 255, .32);
+  color: var(--white);
+  box-shadow: none;
+}
+.totop.on-dark:hover, .totop.on-dark:focus-visible { background: var(--white); color: var(--ink-strong); border-color: var(--white); }
+
 /* ------------------------------------- 6. Grammaire d'apparition (reveal) - */
 
 /* IMPORTANT — tous les états de départ sont sous `html.anim`, classe posée par
