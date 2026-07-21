@@ -1,0 +1,762 @@
+/* ============================================================================
+   Magali Contrino — CV, version onepage
+   ----------------------------------------------------------------------------
+   Même contenu que la réplique du Carrd, même identité typographique et
+   chromatique, mais une page qui se parcourt d'un seul défilement au lieu de
+   six écrans qui se remplacent.
+
+   Sommaire
+     1.  Jetons et polices
+     2.  Base
+     3.  Rideau d'entrée
+     4.  Jauge de défilement
+     5.  Navigation par points
+     6.  Grammaire d'apparition (reveal / unmask / split)
+     7.  Accueil
+     8.  Chapitres
+     9.  Cartes — formations
+     10. Piste — expérience
+     11. Compétences
+     12. Bloc scindé — intérêts
+     13. Contact
+     14. Mouvement réduit
+   ============================================================================ */
+
+/* ------------------------------------------------------ 1. Jetons, polices - */
+
+@font-face { font-family: 'Bai Jamjuree'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/bai-jamjuree-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Bai Jamjuree'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/bai-jamjuree-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: 'Raleway'; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url('assets/fonts/raleway-variable-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Raleway'; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url('assets/fonts/raleway-variable-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 200; font-display: swap;
+  src: url('assets/fonts/source-sans-pro-200-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url('assets/fonts/source-sans-pro-300-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url('assets/fonts/source-sans-pro-300-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('assets/fonts/source-sans-pro-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('assets/fonts/source-sans-pro-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 900; font-display: swap;
+  src: url('assets/fonts/source-sans-pro-900-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 900; font-display: swap;
+  src: url('assets/fonts/source-sans-pro-900-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  /* Couleurs reprises du Carrd, à l'identique. */
+  --paper:      #f2f2f2;
+  --white:      #ffffff;
+  --black:      #000000;
+  --ink:        #474747;
+  --ink-strong: #1c1a1a;
+  --muted:      #919191;
+  --rule:       rgba(71, 71, 71, .16);
+  --rule-dark:  rgba(255, 255, 255, .16);
+
+  --display: 'Bai Jamjuree', sans-serif;
+  --label:   'Raleway', sans-serif;
+  --body:    'Source Sans Pro', sans-serif;
+
+  /* Une seule courbe pour toutes les entrées : sortie exponentielle, qui part
+     vite et se pose longuement. C'est elle qui donne le côté « posé ». */
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --ease-soft: cubic-bezier(.4, 0, .2, 1);
+
+  --gut: clamp(1.25rem, 5vw, 6rem);
+  --max: 78rem;
+
+  /* Incrément d'échelonnement, relu par data-delay. */
+  --step: 90ms;
+}
+
+/* --------------------------------------------------------------- 2. Base - */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: auto; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: clamp(1rem, .95rem + .25vw, 1.125rem);
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tant que le rideau est là, on bloque le défilement. */
+body.is-locked { overflow: hidden; }
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Étiquette en capitales très espacées — l'accent typographique du site. */
+.eyebrow, .tag, .track__label, .sub, .chapter__num {
+  font-family: var(--label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .36em;
+}
+
+/* Lien : le trait se déroule depuis la gauche au survol. */
+.link {
+  display: inline-block;
+  margin-top: 1.1rem;
+  font-size: .92em;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .5s var(--ease);
+}
+.link:hover::after, .link:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+/* ---------------------------------------------------- 3. Rideau d'entrée - */
+
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--ink-strong);
+  display: grid;
+  place-items: center;
+  transition: transform 1s var(--ease), visibility 0s linear 1s;
+  /* Filet : le rideau se lève tout seul au bout de 5 s même si le script n'a
+     jamais posé `is-open`. Rien ne doit pouvoir laisser le CV sous un aplat
+     noir. Quand le script fonctionne, l'animation arrive sur un rideau déjà
+     levé et ne change rien. */
+  animation: curtain-failsafe 0s linear 5s forwards;
+}
+@keyframes curtain-failsafe { to { transform: translateY(-101%); visibility: hidden; } }
+.curtain__mark {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--white);
+  letter-spacing: .08em;
+  opacity: .0;
+  transform: translateY(.4em);
+  animation: mark-in .9s var(--ease) .15s forwards;
+}
+@keyframes mark-in { to { opacity: 1; transform: none; } }
+
+/* Le rideau remonte, il ne disparaît pas en fondu : on garde le geste. */
+body.is-open .curtain { transform: translateY(-101%); visibility: hidden; }
+
+/* ------------------------------------------------- 4. Jauge de défilement - */
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 60;
+  pointer-events: none;
+}
+.progress__bar {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--ink-strong);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* ------------------------------------------------ 5. Navigation par points - */
+
+.dots {
+  position: fixed;
+  right: clamp(.75rem, 2vw, 1.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  opacity: 0;
+  transition: opacity .6s var(--ease);
+}
+body.is-open .dots { opacity: 1; }
+
+.dots ul { display: flex; flex-direction: column; gap: .9rem; align-items: flex-end; }
+
+.dots a {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  font-family: var(--label);
+  font-weight: 700;
+  font-size: .58rem;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: var(--ink);
+}
+/* L'intitulé n'apparaît qu'au survol ; le point, lui, est toujours là. */
+.dots a span {
+  opacity: 0;
+  transform: translateX(.5rem);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+.dots a:hover span, .dots a:focus-visible span { opacity: 1; transform: none; }
+
+.dots a::after {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: transparent;
+  transition: background .4s var(--ease), transform .4s var(--ease);
+}
+.dots a.is-active::after { background: var(--ink); transform: scale(1.45); }
+
+/* Sur fond noir, la navigation s'inverse. */
+.dots.on-dark a { color: var(--white); }
+.dots.on-dark a::after { border-color: var(--white); }
+.dots.on-dark a.is-active::after { background: var(--white); }
+
+@media (max-width: 700px) { .dots { display: none; } }
+
+/* ------------------------------------- 6. Grammaire d'apparition (reveal) - */
+
+/* IMPORTANT — tous les états de départ sont sous `html.anim`, classe posée par
+   app.js. Sans script, sans JavaScript, ou si le script casse avant cette
+   ligne, rien n'est masqué et le CV se lit intégralement. Un CV ne doit jamais
+   dépendre d'une animation pour être visible. */
+
+/* Un seul motif, décliné partout : le bloc monte de deux crans et se révèle.
+   `--d` échelonne les frères, posé depuis data-delay. */
+.anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(2.2rem);
+  transition:
+    opacity 1s var(--ease) var(--d, 0ms),
+    transform 1s var(--ease) var(--d, 0ms);
+}
+.anim [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Image : la photo se dévoile par le bas dans son cadre.
+   Le masque porte sur l'IMAGE, jamais sur le cadre observé : un élément
+   `clip-path: inset(0 0 100%)` a une surface rendue nulle, donc
+   l'IntersectionObserver ne le voit pas — il ne le révélerait jamais.
+   Le cadre garde sa hauteur et son aplat gris, il reste donc observable, et
+   c'est lui qui dessine la place de la photo avant qu'elle n'arrive. */
+.anim [data-unmask] img {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.4s var(--ease);
+}
+.anim [data-unmask].is-in img { clip-path: inset(0 0 0 0); }
+
+/* Titre découpé en mots puis en lettres par app.js. Le mot reste insécable,
+   la ligne ne peut donc rompre qu'entre deux mots. */
+.split-word { display: inline-block; white-space: nowrap; }
+.split-char { display: inline-block; }
+.anim .split-char {
+  opacity: 0;
+  transform: translateY(.9em) rotate(3deg);
+  transition:
+    opacity .9s var(--ease) calc(var(--i) * 28ms),
+    transform .9s var(--ease) calc(var(--i) * 28ms);
+}
+.anim .is-in .split-char { opacity: 1; transform: none; }
+
+figure.media { overflow: hidden; background: var(--muted); }
+figure.media img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+
+/* ------------------------------------------------------------ 7. Accueil - */
+
+.intro {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 42%);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: clamp(5rem, 12vh, 9rem) var(--gut) clamp(4rem, 10vh, 7rem);
+  position: relative;
+}
+
+.intro__text { max-width: 34rem; margin-left: auto; margin-right: clamp(0rem, 2vw, 3rem); }
+
+/* Le pinceau du Carrd d'origine, qui mène au portfolio. */
+.mark {
+  display: inline-block;
+  width: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--ink-strong);
+  transition: transform .5s var(--ease), opacity .5s var(--ease);
+}
+.mark svg { width: 100%; height: auto; fill: currentColor; display: block; }
+.mark:hover, .mark:focus-visible { transform: translateY(-3px) rotate(-6deg); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.eyebrow { font-size: .68rem; color: var(--ink); margin-bottom: 1.6rem; }
+
+.intro__name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7.4vw, 6rem);
+  line-height: .95;
+  letter-spacing: -.02em;
+  color: var(--ink-strong);
+  text-transform: uppercase;
+  margin-bottom: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.intro__roles {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.intro__nav { display: flex; flex-wrap: wrap; gap: .55rem; }
+.intro__nav a {
+  display: block;
+  font-family: var(--label);
+  font-weight: 700;
+  font-size: .62rem;
+  text-transform: uppercase;
+  letter-spacing: .26em;
+  text-decoration: none;
+  padding: .85rem 1.35rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Le fond monte depuis le bas et le texte s'inverse. */
+.intro__nav a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink-strong);
+  transform: translateY(101%);
+  transition: transform .55s var(--ease);
+}
+.intro__nav a:hover, .intro__nav a:focus-visible { color: var(--white); border-color: var(--ink-strong); }
+.intro__nav a:hover::before, .intro__nav a:focus-visible::before { transform: none; }
+
+.intro__portrait { height: min(78svh, 44rem); }
+.media--tall { height: 100%; }
+
+.scroll-cue {
+  position: absolute;
+  left: var(--gut);
+  bottom: clamp(1.5rem, 5vh, 3rem);
+  width: 1px;
+  height: clamp(3rem, 8vh, 5rem);
+  background: var(--rule);
+  overflow: hidden;
+}
+.scroll-cue__line {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateY(-100%);
+  animation: cue 2.4s var(--ease-soft) infinite;
+}
+@keyframes cue {
+  0%   { transform: translateY(-100%); }
+  55%  { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+@media (max-width: 900px) {
+  .intro { grid-template-columns: 1fr; align-content: center; }
+  .intro__text { margin: 0; max-width: none; order: 2; }
+  .intro__portrait { order: 1; height: min(42svh, 22rem); }
+  .scroll-cue { display: none; }
+}
+
+/* ---------------------------------------------------------- 8. Chapitres - */
+
+.chapter {
+  padding: clamp(5rem, 14vh, 10rem) var(--gut);
+  position: relative;
+}
+.chapter--dark { background: var(--ink-strong); color: rgba(255, 255, 255, .82); }
+.chapter--dark .chapter__title, .chapter--dark .track__label { color: var(--white); }
+.chapter--dark .chapter__num { color: rgba(255, 255, 255, .38); }
+
+.chapter__head {
+  max-width: var(--max);
+  margin: 0 auto clamp(3rem, 8vh, 6rem);
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+.chapter__num { font-size: .68rem; color: var(--muted); }
+.chapter__title {
+  font-family: var(--label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: clamp(1.8rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--ink-strong);
+}
+
+.sub {
+  max-width: var(--max);
+  margin: clamp(3.5rem, 8vh, 6rem) auto clamp(1.5rem, 3vh, 2.5rem);
+  font-size: .72rem;
+  color: var(--ink-strong);
+}
+.sub:first-of-type { margin-top: 0; }
+
+.prose { max-width: 46rem; }
+.chapter > .prose { margin-inline: auto; max-width: var(--max); }
+
+/* ------------------------------------------------ 9. Cartes — formations - */
+
+.cards {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.card { background: var(--white); display: flex; flex-direction: column; }
+/* Hauteur alignée sur celle du Carrd (25 rem) : les photos sont le sujet, pas
+   un bandeau décoratif. Un cadre trop bas les réduisait à une bande. */
+.media--card { height: clamp(17rem, 30vh, 25rem); }
+.card__body { padding: clamp(1.5rem, 3vw, 2.25rem); }
+
+.tag { font-size: .62rem; color: var(--muted); margin-bottom: 1.1rem; }
+
+.card__org {
+  font-family: var(--body);
+  font-weight: 900;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--ink-strong);
+  margin-bottom: 1.2rem;
+}
+
+.facts dt {
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin-top: .9rem;
+}
+.facts dt:first-child { margin-top: 0; }
+.facts dd { font-size: .95rem; line-height: 1.55; }
+
+/* ------------------------------------------------ 10. Piste — expérience - */
+
+.track { max-width: var(--max); margin: 0 auto; }
+
+.track__group {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-bottom: clamp(4rem, 10vh, 8rem);
+}
+
+/* L'intitulé du métier et sa photo restent au bord de l'écran pendant que les
+   postes défilent. C'est ce qui donne la lecture par famille. */
+.track__sticky { position: sticky; top: clamp(3rem, 18vh, 8rem); }
+.media--band { height: clamp(13rem, 28vh, 19rem); margin-bottom: 1.5rem; }
+
+.track__label { font-size: .72rem; line-height: 1.5; }
+
+.jobs { display: grid; gap: clamp(2rem, 5vh, 3.5rem); }
+
+.job { border-top: 1px solid var(--rule-dark); padding-top: clamp(1.25rem, 3vh, 2rem); }
+
+.job__date {
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .35rem;
+}
+.job__date--sub { margin-top: 1.4rem; }
+
+.job__role {
+  font-family: var(--body);
+  font-weight: 900;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: .3rem;
+}
+.job__org {
+  font-weight: 600;
+  font-size: .92rem;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: .9rem;
+}
+.job__desc { font-size: .98rem; line-height: 1.7; }
+.job__desc + .job__desc { margin-top: .7rem; }
+
+/* Poste en cours : une pastille qui bat doucement. */
+.job--now .job__date { color: var(--white); display: flex; align-items: center; gap: .5rem; }
+.job--now .job__date::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--white);
+  animation: pulse 2.6s var(--ease-soft) infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.8); } }
+
+@media (max-width: 820px) {
+  .track__group { grid-template-columns: 1fr; gap: 2rem; }
+  .track__sticky { position: static; }
+  .media--band { height: clamp(11rem, 45vw, 15rem); }
+}
+
+/* ------------------------------------------------------- 11. Compétences - */
+
+.skills { max-width: var(--max); margin: 0 auto; }
+
+.skills li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: clamp(1rem, 4vw, 3rem);
+  align-items: baseline;
+  padding: clamp(.7rem, 1.6vh, 1.05rem) 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+/* Le trait du bas se dessine de gauche à droite quand la ligne arrive. */
+.anim .skills li::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -1px;
+  height: 1px; width: 100%;
+  background: var(--ink-strong);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s var(--ease) var(--d, 0ms);
+}
+.anim .skills li.is-in::after { transform: scaleX(1); }
+
+.skills__name {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--ink-strong);
+  text-align: right;
+  font-size: clamp(.9rem, 1.6vw, 1.05rem);
+}
+.skills__use { font-weight: 200; font-size: clamp(.9rem, 1.6vw, 1.05rem); color: var(--black); }
+
+@media (max-width: 620px) {
+  .skills li { grid-template-columns: 1fr; gap: .1rem; text-align: center; padding: .85rem 0; }
+  .skills__name { text-align: center; }
+}
+
+/* -------------------------------------------------- 12. Scindé — intérêts - */
+
+.chapter--split .split {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: center;
+}
+.media--wide { height: clamp(16rem, 46vh, 30rem); }
+.split__body .prose + .prose { margin-top: 1.1rem; }
+
+@media (max-width: 820px) {
+  .chapter--split .split { grid-template-columns: 1fr; }
+  .media--wide { height: clamp(13rem, 34vh, 18rem); }
+}
+
+/* ------------------------------------------------------------ 13. Contact - */
+
+.chapter--contact { padding-bottom: clamp(2rem, 5vh, 3rem); }
+
+.contact {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: start;
+}
+
+.contact__direct { display: grid; gap: 1rem; }
+.contact__big {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3.2vw, 2.1rem);
+  line-height: 1.2;
+  color: var(--white);
+  text-decoration: none;
+  word-break: break-word;
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+}
+.contact__big::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -.1em;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .6s var(--ease);
+}
+.contact__big:hover::after, .contact__big:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+.form { display: grid; gap: 1.75rem; }
+
+/* Étiquette flottante : elle remonte dès que le champ est rempli ou visé. */
+.field { position: relative; }
+.field input, .field textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule-dark);
+  color: var(--white);
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 1.5rem 0 .6rem;
+  border-radius: 0;
+  transition: border-color .4s var(--ease);
+  resize: vertical;
+}
+.field label {
+  position: absolute;
+  left: 0; top: 1.4rem;
+  font-family: var(--label);
+  font-weight: 700;
+  font-size: .62rem;
+  text-transform: uppercase;
+  letter-spacing: .26em;
+  color: var(--muted);
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform .45s var(--ease), color .45s var(--ease);
+}
+.field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--white); }
+.field input:focus + label,
+.field textarea:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-1.35rem) scale(.92);
+  color: var(--white);
+}
+
+.btn {
+  justify-self: start;
+  font-family: var(--label);
+  font-weight: 700;
+  font-size: .62rem;
+  text-transform: uppercase;
+  letter-spacing: .26em;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid var(--rule-dark);
+  padding: 1.05rem 2.4rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color .45s var(--ease), border-color .45s var(--ease);
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--white);
+  transform: translateY(101%);
+  transition: transform .55s var(--ease);
+}
+.btn:hover, .btn:focus-visible { color: var(--ink-strong); border-color: var(--white); }
+.btn:hover::before, .btn:focus-visible::before { transform: none; }
+
+.form__note { font-size: .82rem; color: var(--muted); line-height: 1.5; }
+
+.foot {
+  max-width: var(--max);
+  margin: clamp(4rem, 10vh, 7rem) auto 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule-dark);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: .82rem;
+}
+.foot a { text-decoration: none; color: var(--muted); transition: color .4s var(--ease); }
+.foot a:hover { color: var(--white); }
+
+@media (max-width: 820px) { .contact { grid-template-columns: 1fr; } }
+
+/* ---------------------------------------------------- 14. Mouvement réduit - */
+
+/* Rien ne bouge, tout reste lisible. Les états de départ des animations sont
+   neutralisés, sinon la page resterait blanche. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    transition-delay: 0ms !important;
+  }
+  [data-reveal] { opacity: 1; transform: none; }
+  [data-unmask] img { clip-path: none; transform: none; }
+  .split-char { opacity: 1; transform: none; }
+  .skills li::after { transform: scaleX(1); }
+  .curtain { display: none; }
+  .scroll-cue { display: none; }
+}
