@@ -156,8 +156,6 @@ a { color: inherit; }
   inset: 0;
   z-index: 100;
   background: var(--ink-strong);
-  display: grid;
-  place-items: center;
   transition: transform 1s var(--ease), visibility 0s linear 1s;
   /* Filet : le rideau se lève tout seul au bout de 5 s même si le script n'a
      jamais posé `is-open`. Rien ne doit pouvoir laisser le CV sous un aplat
@@ -166,17 +164,6 @@ a { color: inherit; }
   animation: curtain-failsafe 0s linear 5s forwards;
 }
 @keyframes curtain-failsafe { to { transform: translateY(-101%); visibility: hidden; } }
-.curtain__mark {
-  font-family: var(--display);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  color: var(--white);
-  letter-spacing: .08em;
-  opacity: .0;
-  transform: translateY(.4em);
-  animation: mark-in .9s var(--ease) .15s forwards;
-}
-@keyframes mark-in { to { opacity: 1; transform: none; } }
-
 /* Le rideau remonte, il ne disparaît pas en fondu : on garde le geste. */
 body.is-open .curtain { transform: translateY(-101%); visibility: hidden; }
 
@@ -355,7 +342,15 @@ body.is-open .dots { opacity: 1; }
 }
 .anim .is-in .split-char { opacity: 1; transform: none; }
 
-figure.media { overflow: hidden; background: var(--muted); }
+/* Aplat que l'on aperçoit sous la photo pendant qu'elle se dévoile, et qui
+   tient sa place avant qu'elle n'arrive. Blanc, comme les cartes — un gris s'y
+   voyait pendant le démasquage. */
+figure.media { overflow: hidden; background: var(--white); }
+
+/* Sauf sur la section sombre : un aplat blanc y clignerait violemment pendant
+   le démasquage, plus voyant encore que le gris qu'il remplace. La photo y
+   émerge du fond, sans rien laisser voir derrière elle. */
+.chapter--dark figure.media { background: var(--ink-strong); }
 figure.media img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
 
 /* ------------------------------------------------------------ 7. Accueil - */
